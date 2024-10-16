@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Startseite</a></li>
+                <li><a href="#about">Über mich</a></li>
+                <li><a href="#projects">Projekte</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Willkommen auf meinem Portfolio</h1>
+            <p>Ich bin ein Full-Stack Developer</p>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>Über mich</h2>
+        <p>Ich bin ein leidenschaftlicher Entwickler mit Erfahrung in...</p>
+        <h3>Technische Fähigkeiten</h3>
+        <ul>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>HTML/CSS</li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2>Projekte</h2>
+        <div class="project-grid">
+            <div class="project">
+                <img src="project1.jpg" alt="Projekt 1">
+                <h3>Projekt 1</h3>
+                <p>Ziel: ... | Technologien: ... | Rolle: ...</p>
+                <a href="https://github.com/" target="_blank">Projekt ansehen</a>
+            </div>
+            <div class="project">
+                <img src="project2.jpg" alt="Projekt 2">
+                <h3>Projekt 2</h3>
+                <p>Ziel: ... | Technologien: ... | Rolle: ...</p>
+                <a href="https://github.com/" target="_blank">Projekt ansehen</a>
+            </div>
+            <!-- Weitere Projekte hier -->
+        </div>
+    </section>
+
+    <section id="blog">
+        <h2>Blog</h2>
+        <article>
+            <h3>Artikel 1</h3>
+            <p>Einführung in die neuesten Technologien...</p>
+            <a href="#">Weiterlesen</a>
+        </article>
+        <!-- Weitere Artikel hier -->
+    </section>
+
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Nachricht:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Absenden</button>
+        </form>
+        <div class="social-media">
+            <a href="https://linkedin.com">LinkedIn</a>
+            <a href="https://github.com">GitHub</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mein Portfolio. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
