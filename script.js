@@ -1,45 +1,38 @@
-// script.js
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
+// Custom Cursor Implementation
+document.addEventListener('mousemove', function(e) {
+    const cursor = document.querySelector('.cursor');
+    cursor.style.left = e.pageX + 'px';
+    cursor.style.top = e.pageY + 'px';
+});
 
-    const callback = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    };
-
-    const observer = new IntersectionObserver(callback, options);
-    
-    sections.forEach(section => {
-        section.classList.add('hidden');
-        observer.observe(section);
+// Scroll Animation (optional: can enhance performance with IntersectionObserver)
+const items = document.querySelectorAll('.portfolio-item');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInScaleBlur 1s ease forwards';
+        }
     });
 });
 
-// Fade-in Effekt
-const styles = `
-.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
+items.forEach(item => {
+    observer.observe(item);
+});
 
-.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-`;
+// Typed.js for Hover Effects
+document.querySelectorAll('.portfolio-item').forEach((item, index) => {
+    const infoBox = item.querySelector('.info-box');
+    const typedId = `#typed${index + 1}`;
+    const infoText = infoBox.getAttribute('data-info');
 
-const styleSheet = document.createElement("style");
-styleSheet.type = "text/css";
-styleSheet.innerText = styles;
-document.head.appendChild(styleSheet);
+    item.addEventListener('mouseenter', () => {
+        if (!infoBox.classList.contains('typed-init')) {
+            new Typed(typedId, {
+                strings: [infoText],
+                typeSpeed: 50,
+                showCursor: false
+            });
+            infoBox.classList.add('typed-init');
+        }
+    });
+});
