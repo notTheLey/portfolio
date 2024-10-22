@@ -1,77 +1,18 @@
-/* styles.css */
-body {
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #F0F0F0;
-    color: #1A1A2E;
-}
-
-header {
-    background: url('header-bg.jpg') no-repeat center center/cover;
-    padding: 50px;
-    color: #FFFFFF;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 20px;
-}
-
-nav a {
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #00A8E1;
-}
-
-.hero {
-    animation: fadeIn 2s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-section {
-    padding: 50px;
-    text-align: center;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.project {
-    background-color: #FFFFFF;
-    border-radius: 8px;
+/* Info Box */
+.info-box {
+    background-color: var(--info-box-bg-color);
+    color: #000;
     padding: 20px;
-    transition: transform 0.3s;
-}
-
-.project:hover {
-    transform: scale(1.05);
-}
-
-.social-media a {
-    margin: 0 10px;
-}
-
-footer {
     text-align: center;
-    padding: 20px;
-    background-color: #1A1A2E;
-    color: #FFFFFF;
+    height: 100px; /* Fixierte Höhe für bessere Animationen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Sichtbar beim Hover */
+.portfolio-item:hover .info-box {
+    opacity: 1;
 }
