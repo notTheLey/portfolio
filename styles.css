@@ -1,3 +1,68 @@
+/* Farbvariablen */
+:root {
+    --background-color: #0a0a0a; /* Tiefes Schwarz */
+    --text-color: #f2f2f2;       /* Helles Weiß */
+    --highlight-color: #EF003F;  /* Leuchtendes Rot */
+    --portfolio-bg-color: #1a1a1a; /* Dunkleres Grau für die Karten */
+    --info-box-bg-color: rgba(255, 255, 255, 0.9); /* Weißer, transparenter Hintergrund */
+    --hover-highlight-color: rgba(239, 0, 63, 0.6); /* Roter Hover-Effekt */
+}
+
+/* Grundlegende Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Roboto Mono', monospace; /* Moderner Font für Developer */
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+h1 {
+    color: var(--highlight-color);
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Portfolio Items */
+.portfolio-item {
+    position: relative;
+    background-color: var(--portfolio-bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(50px); /* Ausgangsposition für Scroll-Animation */
+    opacity: 0;
+    animation: fadeInScaleBlur 1s ease forwards;
+}
+
+/* Keyframe-Animation für Scroll-Effekt */
+@keyframes fadeInScaleBlur {
+    0% {
+        transform: translateY(50px) scale(0.9);
+        opacity: 0;
+        filter: blur(8px);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
 /* Info Box */
 .info-box {
     background-color: var(--info-box-bg-color);
@@ -12,7 +77,38 @@
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Sichtbar beim Hover */
+/* Hover Effekte */
 .portfolio-item:hover .info-box {
     opacity: 1;
+}
+
+/* Custom Cursor Design */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--highlight-color);
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease, width 0.15s ease, height 0.15s ease;
+    z-index: 999;
+}
+
+/* Custom Cursor Hover */
+.portfolio-item:hover .cursor {
+    width: 40px;
+    height: 40px;
+    background-color: var(--hover-highlight-color);
+}
+
+.portfolio-item:hover {
+    box-shadow: 0 10px 30px var(--hover-highlight-color);
+}
+
+/* Responsiv für kleinere Bildschirme */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
 }
