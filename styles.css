@@ -146,6 +146,7 @@ header .date {
 .portfolio-item:hover .cursor {
     width: 400px;
     height: 140px;
+    background-color: var(--hover-border-color)
      /* Rot beim Hover */
 }
 
