@@ -5,7 +5,7 @@
     --highlight-color: #EF003F;  /* Leuchtendes Rot */
     --box-bg-color: #1a1a1a;     /* Dunkleres Grau für die Boxen */
     --hover-border-color: #ffffff; /* Weißer Hover-Rahmen */
-    --info-bg-color: rgba(255, 255, 255, 0.8); /* Halbtransparentes Weiß für Info-Box */
+    --info-bg-color: rgba(255, 255, 255, 1); /* Halbtransparentes Weiß für Info-Box */
     --transition-speed: 0.5s;
 }
 
@@ -138,15 +138,15 @@ header .date {
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
-    transition: transform var(--transition-speed), background-color var(--transition-speed);
+    transition: transform var(--transition-speed), background-color var(--transition-speed*2);
     transform: translate(-50%, -50%);
     z-index: 1000;
 }
 
 .portfolio-item:hover .cursor {
-    width: 50px;
-    height: 50px;
-    background-color: var(--highlight-color); /* Rot beim Hover */
+    width: 400px;
+    height: 140px;
+     /* Rot beim Hover */
 }
 
 /* Responsive Anpassungen */
