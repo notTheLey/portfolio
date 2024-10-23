@@ -3,37 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ley Update Hub</title>
+    <title>Dynamic Ley Update Hub</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<!-- Header -->
 <header>
     <h1>Ley Update Hub</h1>
     <div class="date">23.12.2024 Ley Dev</div>
 </header>
 
 <main>
+    <!-- Dynamische Grid-Container -->
     <section class="container">
-        <!-- Beispiel Boxen -->
-        <div class="portfolio-item">
-            <h2>Bla Bla</h2>
-            <div class="info">
+        <div class="portfolio-item" style="--delay: 0.1s;">
+            <h2>Project 1</h2>
+            <div class="info-box">
                 <span class="date">23.12.2024</span>
-                <p>Bla bla bla bla bla</p>
+                <p>Projektbeschreibung hier</p>
             </div>
         </div>
 
-        <div class="portfolio-item small">
-            <h2>Box 2</h2>
-            <div class="info">
+        <div class="portfolio-item small" style="--delay: 0.3s;">
+            <h2>Project 2</h2>
+            <div class="info-box">
                 <span class="date">23.12.2024</span>
-                <p>Kleinere Box</p>
+                <p>Projektbeschreibung hier</p>
             </div>
         </div>
 
-        <!-- Weitere Boxen je nach Bedarf -->
+        <!-- Weitere Boxen -->
     </section>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="customCursor"></div>
+
+    <script>
+        /* Custom Cursor Script */
+        const cursor = document.getElementById('customCursor');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+        });
+
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                cursor.style.width = '50px';
+                cursor.style.height = '50px';
+                cursor.style.backgroundColor = '#EF003F';
+            });
+
+            item.addEventListener('mouseout', () => {
+                cursor.style.width = '25px';
+                cursor.style.height = '25px';
+                cursor.style.backgroundColor = '#ffffff';
+            });
+        });
+    </script>
 </main>
 
 </body>
